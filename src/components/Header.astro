@@ -27,6 +27,11 @@ const links = [
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.4" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
         </button>
       </form>
+      <button class="theme-toggle" type="button" aria-label="Ativar tema escuro" aria-pressed="false" data-theme-toggle>
+        <svg class="theme-icon theme-icon--sun" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.5v2M12 19.5v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2.5 12h2M19.5 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <svg class="theme-icon theme-icon--moon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 15.2A8.5 8.5 0 0 1 8.8 4a8.5 8.5 0 1 0 11.2 11.2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        <span class="sr-only" data-theme-label>Ativar tema escuro</span>
+      </button>
       <details id="mobile-navigation" class="mobile-nav" data-mobile-nav>
         <summary class="sr-only">Menu</summary>
         <form class="header-search" action="/buscar/" role="search">
@@ -63,4 +68,24 @@ const links = [
   });
 
   mobileNavigation?.addEventListener('toggle', updateMobileMenuState);
+
+  const themeToggle = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
+  const themeLabel = themeToggle?.querySelector<HTMLElement>('[data-theme-label]');
+
+  const applyTheme = (theme: 'light' | 'dark') => {
+    const nextLabel = theme === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro';
+    document.documentElement.dataset.theme = theme;
+    themeToggle?.setAttribute('aria-label', nextLabel);
+    themeToggle?.setAttribute('aria-pressed', String(theme === 'dark'));
+    themeToggle?.setAttribute('title', nextLabel);
+    if (themeLabel) themeLabel.textContent = nextLabel;
+  };
+
+  applyTheme(document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');
+
+  themeToggle?.addEventListener('click', () => {
+    const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    window.localStorage.setItem('theme', nextTheme);
+    applyTheme(nextTheme);
+  });
 </script>

@@ -22,11 +22,26 @@ const schemas = structuredData ? (Array.isArray(structuredData) ? structuredData
 <!doctype html>
 <html lang="pt-BR">
   <head>
+    <script is:inline>
+      (() => {
+        try {
+          const storedTheme = window.localStorage.getItem('theme');
+          const theme = storedTheme === 'dark' || storedTheme === 'light'
+            ? storedTheme
+            : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          document.documentElement.dataset.theme = theme;
+        } catch {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#122342" />
     <meta name="description" content={description} />
+    <meta name="google-adsense-account" content="ca-pub-2162536684519068" />
+    <script is:inline async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2162536684519068" crossorigin="anonymous"></script>
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
