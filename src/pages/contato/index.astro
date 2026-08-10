@@ -1,0 +1,66 @@
+---
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Contato" description="Entre em contato com a equipe editorial da IA Descomplicada para enviar dúvidas, sugestões e correções.">
+  <header class="page-heading">
+    <div class="container">
+      <Breadcrumbs items={[{ label: 'Contato' }]} />
+      <p class="eyebrow">Fale com a equipe</p>
+      <h1>Tem uma dúvida ou sugestão?</h1>
+      <p>Use o formulário para enviar uma pauta, apontar uma correção ou compartilhar uma pergunta que merece um guia.</p>
+    </div>
+  </header>
+  <section class="section">
+    <div class="container contact-layout">
+      <div>
+        <div class="contact-card">
+          <h2>Como podemos ajudar</h2>
+          <p>Mensagens com contexto e links de referência tornam a análise mais rápida. Não envie senhas, documentos confidenciais ou dados pessoais de terceiros.</p>
+          <div class="contact-points">
+            <div class="contact-point">
+              <span class="contact-point-icon" aria-hidden="true">↗</span>
+              <div><strong>Sugestões de pauta</strong><span>Conte qual problema o artigo deveria resolver.</span></div>
+            </div>
+            <div class="contact-point">
+              <span class="contact-point-icon" aria-hidden="true">✓</span>
+              <div><strong>Correções</strong><span>Indique a página, o trecho e, se possível, uma fonte.</span></div>
+            </div>
+            <div class="contact-point">
+              <span class="contact-point-icon" aria-hidden="true">?</span>
+              <div><strong>Dúvidas editoriais</strong><span>Envie uma pergunta que possa virar conteúdo público.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-card">
+        <form name="contato" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contato" />
+          <p class="sr-only"><label>Não preencha: <input name="bot-field" /></label></p>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="name">Nome</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="form-field">
+              <label for="email">E-mail</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="form-field form-field--full">
+              <label for="subject">Assunto</label>
+              <input id="subject" name="subject" type="text" required />
+            </div>
+            <div class="form-field form-field--full">
+              <label for="message">Mensagem</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+          </div>
+          <div class="form-submit">
+            <small>O formulário usa Netlify Forms quando o site é publicado no Netlify.</small>
+            <button class="button" type="submit">Enviar mensagem</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

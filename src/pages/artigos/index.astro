@@ -1,0 +1,12 @@
+---
+import ArticleListing from '../../components/ArticleListing.astro';
+import { articles } from '../../content/articles';
+
+const orderedArticles = [...articles].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+---
+<ArticleListing
+  title="Todos os artigos"
+  eyebrow="Biblioteca IA Descomplicada"
+  description="Tutoriais, guias, comparativos e ideias práticas para entender e usar inteligência artificial com mais critério."
+  articles={orderedArticles}
+/>

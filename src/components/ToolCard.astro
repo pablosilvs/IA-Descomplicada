@@ -1,0 +1,23 @@
+---
+import type { Tool } from '../types';
+
+interface Props {
+  tool: Tool;
+}
+
+const { tool } = Astro.props;
+const initials = tool.name.split(' ').map((part) => part[0]).slice(0, 2).join('');
+---
+<article class="tool-card" style={`--tool-accent: ${tool.accent}`}>
+  <div class="tool-card-top">
+    <span class="tool-icon" aria-hidden="true">{initials}</span>
+    <span class="tool-level">{tool.level}</span>
+  </div>
+  <h2>{tool.name}</h2>
+  <p>{tool.description}</p>
+  <p class="tool-card-use"><strong>Serve para:</strong> {tool.use}</p>
+  <div class="tool-card-footer">
+    <span class="tool-category">{tool.category}</span>
+    <a class="official-link" href={tool.url} target="_blank" rel="noopener noreferrer">Site oficial ↗</a>
+  </div>
+</article>

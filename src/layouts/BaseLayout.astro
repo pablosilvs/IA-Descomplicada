@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const { title, description, image = '/og-image.svg', type = 'website', noindex = false, structuredData } = Astro.props;
+const siteOrigin = Astro.site?.origin || 'https://ia-descomplicada.netlify.app';
+const canonical = new URL(Astro.url.pathname, siteOrigin).toString();
+const socialImage = new URL(image, siteOrigin).toString();
+const fullTitle = title.includes('IA Descomplicada') ? title : `${title} | IA Descomplicada`;
+const schemas = structuredData ? (Array.isArray(structuredData) ? structuredData : [structuredData]) : [];
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#122342" />
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title="IA Descomplicada" href="/rss.xml" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="IA Descomplicada" />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <title>{fullTitle}</title>
+    {schemas.map((schema) => <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />)}
+  </head>
+  <body>
+    <Header />
+    <main id="main" class="page-main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,12 @@
+---
+import ArticleListing from '../../components/ArticleListing.astro';
+import { articles } from '../../content/articles';
+
+const guideArticles = articles.filter((article) => article.section === 'guia' || article.category === 'Confiabilidade');
+---
+<ArticleListing
+  title="Guias de Inteligência Artificial"
+  eyebrow="Comece pelo essencial"
+  description="Explicações organizadas para construir uma base, avaliar possibilidades e usar ferramentas de IA com responsabilidade."
+  articles={guideArticles}
+/>

@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Página não encontrada" description="A página que você tentou acessar não foi encontrada." noindex={true}>
+  <section class="page-heading" style="min-height: 54vh; display: grid; align-items: center;">
+    <div class="container">
+      <p class="eyebrow">Erro 404</p>
+      <h1>Esta página saiu do ar ou mudou de endereço.</h1>
+      <p>Volte para o início ou use a busca para encontrar um guia, tutorial ou ferramenta.</p>
+      <div class="hero-actions" style="margin-top: 24px;">
+        <a class="button" href="/">Ir para a home</a>
+        <a class="button button--secondary" href="/buscar/">Buscar conteúdos</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

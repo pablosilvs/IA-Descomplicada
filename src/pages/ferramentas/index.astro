@@ -1,0 +1,55 @@
+---
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ToolCard from '../../components/ToolCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { tools } from '../../content/tools';
+
+const groups = [
+  { id: 'chatbots', label: 'Chatbots e pesquisa', categories: ['Chatbots', 'Pesquisa'] },
+  { id: 'imagem', label: 'Imagem', categories: ['Imagem'] },
+  { id: 'video', label: 'Vídeo', categories: ['Vídeo'] },
+  { id: 'audio', label: 'Áudio', categories: ['Áudio'] },
+  { id: 'programacao', label: 'Programação', categories: ['Programação'] },
+  { id: 'produtividade', label: 'Produtividade', categories: ['Produtividade'] },
+];
+const toolsSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Ferramentas de IA',
+  description: 'Catálogo editorial de ferramentas de inteligência artificial com links oficiais.',
+  mainEntity: tools.map((tool) => ({ '@type': 'SoftwareApplication', name: tool.name, applicationCategory: tool.category, url: tool.url })),
+};
+---
+<BaseLayout title="Ferramentas de IA" description="Conheça ferramentas de inteligência artificial para texto, imagem, vídeo, áudio, programação e produtividade. Sempre confira o site oficial." structuredData={toolsSchema}>
+  <header class="page-heading">
+    <div class="container">
+      <Breadcrumbs items={[{ label: 'Ferramentas de IA' }]} />
+      <p class="eyebrow">Catálogo editorial</p>
+      <h1>Ferramentas de IA para cada tarefa</h1>
+      <p>Uma seleção organizada para você entender para que cada serviço serve, qual o nível de entrada e onde encontrar o endereço oficial.</p>
+    </div>
+  </header>
+
+  <section class="section" aria-labelledby="tools-list-title">
+    <div class="container">
+      <div class="article-disclaimer" style="margin: 0 0 30px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 10.5v5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="7.3" r="1" fill="currentColor"/></svg>
+        <span>Ferramentas de inteligência artificial podem gerar informações incorretas. Verifique informações importantes em fontes confiáveis e leia as condições do serviço antes de compartilhar dados.</span>
+      </div>
+      <h2 id="tools-list-title" class="sr-only">Lista de ferramentas</h2>
+      {groups.map((group) => {
+        const groupTools = tools.filter((tool) => group.categories.includes(tool.category));
+        return groupTools.length ? (
+          <section id={group.id} class="section--compact" aria-labelledby={`${group.id}-title`}>
+            <div class="section-header">
+              <div><p class="eyebrow">{groupTools.length} opções</p><h2 id={`${group.id}-title`}>{group.label}</h2></div>
+            </div>
+            <div class="tools-grid">
+              {groupTools.map((tool) => <ToolCard tool={tool} />)}
+            </div>
+          </section>
+        ) : null;
+      })}
+    </div>
+  </section>
+</BaseLayout>

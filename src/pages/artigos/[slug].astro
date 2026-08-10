@@ -1,0 +1,21 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { articles } from '../../content/articles';
+import { getRelatedArticles } from '../../utils/site';
+import type { Article } from '../../types';
+
+export function getStaticPaths() {
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+interface Props {
+  article: Article;
+}
+
+const { article } = Astro.props;
+const related = getRelatedArticles(article, articles);
+---
+<ArticleLayout article={article} related={related} />

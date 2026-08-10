@@ -1,0 +1,12 @@
+---
+import ArticleListing from '../../components/ArticleListing.astro';
+import { articles } from '../../content/articles';
+
+const comparisonArticles = articles.filter((article) => article.section === 'comparativo');
+---
+<ArticleListing
+  title="Comparativos de ferramentas"
+  eyebrow="Escolha com contexto"
+  description="Critérios, testes e diferenças que ajudam você a decidir sem depender apenas de listas ou promessas de mercado."
+  articles={comparisonArticles}
+/>

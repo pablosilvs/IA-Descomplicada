@@ -1,0 +1,118 @@
+---
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const promptCards = [
+  {
+    title: 'Transformar anotações em plano',
+    description: 'Para organizar uma reunião, um projeto pessoal ou uma lista de pendências.',
+    prompt: `Objetivo: transformar minhas anotações em um plano de ação.\nContexto: [explique o projeto e o prazo].\nFormato: tabela com ação, responsável, prazo e dúvida em aberto.\nRegras: não invente informações; marque lacunas como "a confirmar"; limite a 10 ações.\nAnotações: [cole aqui]`,
+  },
+  {
+    title: 'Revisar sem perder sua voz',
+    description: 'Para editar e-mails, artigos ou mensagens mantendo a intenção original.',
+    prompt: `Revise o texto abaixo para clareza, gramática e concisão.\nPúblico: [quem vai ler].\nTom que quero preservar: [descreva ou forneça um exemplo].\nNão faça: não mude a intenção, não acrescente fatos e não use jargão desnecessário.\nEntregue: versão revisada + até 5 mudanças explicadas.\nTexto: [cole aqui]`,
+  },
+  {
+    title: 'Estudar com perguntas',
+    description: 'Para transformar material de estudo em prática ativa em vez de apenas ler um resumo.',
+    prompt: `Estou estudando [tema] e já entendo [base].\nUse somente as anotações abaixo. Crie 8 perguntas, misturando definição, aplicação e comparação.\nFaça uma pergunta por vez e espere minha resposta. Dê uma pista se eu errar, mas não revele a resposta imediatamente.\nAnotações: [cole aqui]`,
+  },
+  {
+    title: 'Criticar uma proposta',
+    description: 'Para encontrar pressupostos, riscos e perguntas antes de apresentar uma ideia.',
+    prompt: `Analise a proposta abaixo como uma revisora cuidadosa.\nContexto e público: [descreva].\nOrganize a resposta em: objetivo entendido, premissas, pontos fortes, riscos, perguntas sem resposta e próximo teste pequeno.\nSepare o que está escrito de suas inferências. Não invente dados.\nProposta: [cole aqui]`,
+  },
+  {
+    title: 'Criar uma imagem editorial',
+    description: 'Para sair de adjetivos genéricos e descrever uma direção visual mais controlável.',
+    prompt: `Crie uma descrição para uma imagem editorial sobre [tema].\nAssunto principal: [o que aparece].\nAmbiente e ação: [onde e o que acontece].\nComposição: [horizontal/vertical, espaço livre para título, distância].\nLuz e paleta: [descreva].\nEvite: texto dentro da imagem, logos, excesso de elementos e detalhes não solicitados.`,
+  },
+  {
+    title: 'Resumir com rastreabilidade',
+    description: 'Para reduzir documentos sem apagar números, exceções ou a origem de cada informação.',
+    prompt: `Leia o material abaixo e entregue: 1) resumo em 5 tópicos, 2) números e prazos, 3) decisões, 4) limitações, 5) itens não informados.\nPara cada item importante, indique o título ou trecho de origem. Separe fatos de inferências. Não acrescente informação externa.\nMaterial: [cole aqui]`,
+  },
+];
+---
+<BaseLayout title="Prompts de IA para adaptar" description="Modelos práticos de prompts para estudos, textos, planejamento, revisão e criação visual. Adapte o contexto e confira cada resposta.">
+  <header class="page-heading">
+    <div class="container">
+      <Breadcrumbs items={[{ label: 'Prompts' }]} />
+      <p class="eyebrow">Biblioteca prática</p>
+      <h1>Prompts que começam pelo problema</h1>
+      <p>Use os modelos abaixo como ponto de partida. Troque o contexto, diga o que não pode ser inventado e sempre revise a saída antes de usar.</p>
+    </div>
+  </header>
+  <section class="section" aria-labelledby="prompts-title">
+    <div class="container">
+      <div class="section-header">
+        <div><p class="eyebrow">{promptCards.length} modelos</p><h2 id="prompts-title">Escolha, adapte e teste</h2></div>
+        <a class="text-link" href="/artigos/como-criar-prompts-melhores-para-ferramentas-de-ia/">Leia o guia completo <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="prompt-cards">
+        {promptCards.map((card) => (
+          <article class="contact-card prompt-card">
+            <p class="eyebrow">Modelo adaptável</p>
+            <h2>{card.title}</h2>
+            <p>{card.description}</p>
+            <pre><code>{card.prompt}</code></pre>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .prompt-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17px;
+  }
+
+  .prompt-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .prompt-card .eyebrow {
+    margin-bottom: 8px;
+    font-size: 0.65rem;
+  }
+
+  .prompt-card h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    letter-spacing: -0.045em;
+  }
+
+  .prompt-card > p:not(.eyebrow) {
+    margin: 7px 0 0;
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+  }
+
+  .prompt-card pre {
+    flex: 1;
+    overflow-x: auto;
+    margin: 19px 0 0;
+    padding: 16px;
+    border-radius: 10px;
+    background: #182943;
+    color: #edf2ff;
+    font-size: 0.76rem;
+    line-height: 1.65;
+    white-space: pre-wrap;
+  }
+
+  .prompt-card code {
+    font-family: "SFMono-Regular", Consolas, monospace;
+  }
+
+  @media (max-width: 620px) {
+    .prompt-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

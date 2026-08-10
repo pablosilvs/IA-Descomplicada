@@ -1,0 +1,44 @@
+---
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const aboutSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'Sobre a IA Descomplicada',
+  description: 'Conheça o propósito editorial da IA Descomplicada.',
+};
+---
+<BaseLayout title="Sobre a IA Descomplicada" description="Conheça o propósito, os critérios editoriais e o compromisso da IA Descomplicada com informação clara sobre inteligência artificial." structuredData={aboutSchema}>
+  <header class="page-heading">
+    <div class="container">
+      <Breadcrumbs items={[{ label: 'Sobre' }]} />
+      <p class="eyebrow">O projeto</p>
+      <h1>IA sem complicação, com contexto.</h1>
+      <p>Um portal brasileiro para quem quer entender inteligência artificial e transformá-la em ferramenta útil, sem depender de hype ou promessas fáceis.</p>
+    </div>
+  </header>
+  <section class="section">
+    <div class="container prose-page">
+      <h2>Por que existimos</h2>
+      <p>A inteligência artificial chegou ao cotidiano antes que muita gente tivesse tempo de entender seus termos, limites e possibilidades. A IA Descomplicada nasce para organizar esse assunto em uma linguagem direta, com exemplos que façam sentido para pessoas comuns, criadores de conteúdo, estudantes, profissionais e pequenos negócios.</p>
+      <p>O foco não é publicar toda novidade. É explicar o que merece atenção, ensinar como testar uma ferramenta e mostrar quais cuidados acompanham cada uso.</p>
+
+      <h2>Como fazemos conteúdo</h2>
+      <ul>
+        <li>Preferimos tutoriais que você consegue acompanhar e verificar.</li>
+        <li>Separamos o que uma ferramenta promete do que você deve testar na prática.</li>
+        <li>Indicamos limitações e riscos quando eles mudam a decisão.</li>
+        <li>Atualizamos conteúdos quando recursos, preços ou fluxos mudam.</li>
+        <li>Não inventamos depoimentos, números de usuários ou resultados garantidos.</li>
+      </ul>
+      <p>Os artigos são assinados pela <strong>Equipe IA Descomplicada</strong>. Isso representa um perfil editorial do projeto, não um currículo ou uma autoridade técnica inventada. Quando um tema exigir orientação especializada, deixamos claro que o conteúdo educativo não substitui um profissional.</p>
+
+      <h2>O que você encontra aqui</h2>
+      <p>O portal combina aproximadamente tutoriais, guias, comparativos e conteúdos de contexto. Você pode começar por <a href="/artigos/o-que-e-inteligencia-artificial-guia-para-iniciantes/">o guia para iniciantes</a>, explorar a <a href="/ferramentas/">seleção de ferramentas</a> ou ir direto aos <a href="/prompts/">prompts para adaptar</a>.</p>
+
+      <h2>Fale com a gente</h2>
+      <p>Encontrou um erro, quer sugerir uma pauta ou precisa esclarecer uma informação? Use o <a href="/contato/">formulário de contato</a>. Feedback específico ajuda a melhorar os conteúdos e a manter as páginas úteis.</p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">IA Descomplicada</title>
+  <desc id="desc">Inteligência Artificial sem complicação.</desc>
+  <rect width="1200" height="630" fill="#f7f9fc"/>
+  <circle cx="1030" cy="-40" r="360" fill="#e8edff"/>
+  <circle cx="1120" cy="500" r="270" fill="#eeeafd"/>
+  <path d="M0 536c220-80 366-34 548-74 210-46 330-152 652-105v273H0Z" fill="#122342"/>
+  <rect x="94" y="104" width="80" height="80" rx="24" fill="#122342"/>
+  <path d="M118 160v-32h10v32h-10Zm20 0v-32h10l16 20v-20h10v32h-10l-16-20v20h-10Z" fill="#fff"/>
+  <text x="94" y="277" fill="#122342" font-family="Arial, sans-serif" font-size="72" font-weight="700">IA Descomplicada</text>
+  <text x="98" y="338" fill="#52627a" font-family="Arial, sans-serif" font-size="31">Inteligência Artificial sem complicação.</text>
+  <text x="98" y="568" fill="#fff" font-family="Arial, sans-serif" font-size="25">Guias, ferramentas e tutoriais para usar IA melhor.</text>
+</svg>

@@ -1,0 +1,49 @@
+---
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Política de Privacidade" description="Política de privacidade da IA Descomplicada: dados de navegação, formulários, cookies, analytics e publicidade futura.">
+  <header class="page-heading">
+    <div class="container">
+      <Breadcrumbs items={[{ label: 'Política de Privacidade' }]} />
+      <p class="eyebrow">Transparência</p>
+      <h1>Política de Privacidade</h1>
+      <p>Esta página é uma base editorial para o lançamento. Revise os campos indicados e adapte o texto à configuração real do domínio, analytics e serviços utilizados.</p>
+    </div>
+  </header>
+  <section class="section">
+    <div class="container prose-page">
+      <p><strong>Última atualização:</strong> 10 de agosto de 2026</p>
+      <h2>1. Quem somos</h2>
+      <p>A IA Descomplicada é um portal de conteúdo educativo sobre inteligência artificial. Nesta política, “site” significa as páginas publicadas neste domínio e “nós” significa a equipe responsável pelo projeto.</p>
+
+      <h2>2. Quais dados podem ser tratados</h2>
+      <p>O site foi construído para funcionar com o mínimo de dados. Podemos receber:</p>
+      <ul>
+        <li>Dados que você envia voluntariamente no formulário de contato, como nome, e-mail, assunto e mensagem.</li>
+        <li>Dados técnicos básicos necessários para entregar a página, mantidos pela hospedagem conforme as políticas do provedor.</li>
+        <li>Dados de navegação somente se uma ferramenta de analytics for ativada no futuro, conforme descrito na seção correspondente.</li>
+      </ul>
+      <p>Não peça nem envie senhas, dados de saúde, documentos ou informações confidenciais pelo formulário.</p>
+
+      <h2>3. Formulário de contato</h2>
+      <p>O formulário foi preparado para o Netlify Forms. Quando ativado, a mensagem será processada pelo Netlify e usada para responder à solicitação, avaliar correções e organizar sugestões editoriais. <strong>Placeholder de publicação:</strong> confirme aqui o prazo de retenção, a conta responsável e o canal usado para responder antes de colocar o site no ar.</p>
+
+      <h2>4. Cookies e analytics</h2>
+      <p>O site não inclui IDs falsos de Google Analytics nem scripts de rastreamento por padrão. Se analytics for adicionado, explique nesta política o fornecedor, a finalidade, os eventos coletados, o período de retenção e como o visitante pode recusar ou ajustar a coleta.</p>
+      <p>Consulte também a <a href="/politica-de-cookies/">Política de Cookies</a>.</p>
+
+      <h2>5. Publicidade futura</h2>
+      <p>Os espaços de publicidade estão desativados no código atual. Se o Google AdSense ou outro serviço for aprovado e configurado, atualize esta política antes da ativação com o publisher ID real, fornecedores envolvidos, cookies, tecnologias de personalização, consentimento aplicável e instruções de gerenciamento.</p>
+
+      <h2>6. Links externos</h2>
+      <p>Artigos e páginas de ferramentas podem apontar para sites externos. Cada serviço possui sua própria política e termos. Leia essas informações antes de criar uma conta ou enviar dados.</p>
+
+      <h2>7. Direitos e contato</h2>
+      <p>Solicitações relacionadas aos dados enviados pelo formulário podem ser feitas pela <a href="/contato/">página de contato</a>. <strong>Placeholder de publicação:</strong> substitua esta seção pelos dados legais do responsável, endereço de contato e procedimento aplicável à sua operação.</p>
+
+      <h2>8. Alterações</h2>
+      <p>Esta política pode ser atualizada quando o site adicionar analytics, publicidade, newsletter ou novos formulários. A data no topo deve ser alterada sempre que houver uma revisão relevante.</p>
+    </div>
+  </section>
+</BaseLayout>

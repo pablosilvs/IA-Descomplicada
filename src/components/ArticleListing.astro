@@ -1,0 +1,55 @@
+---
+import ArticleCard from './ArticleCard.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import type { Article } from '../types';
+
+interface Props {
+  title: string;
+  description: string;
+  eyebrow: string;
+  articles: Article[];
+}
+
+const { title, description, eyebrow, articles } = Astro.props;
+const siteOrigin = Astro.site?.origin || 'https://ia-descomplicada.netlify.app';
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: title,
+  description,
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: articles.length,
+    itemListElement: articles.map((article, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: article.title,
+      url: new URL(`/artigos/${article.slug}/`, siteOrigin).toString(),
+    })),
+  },
+};
+---
+<BaseLayout title={title} description={description} structuredData={collectionSchema}>
+  <header class="page-heading">
+    <div class="container">
+      <Breadcrumbs items={[{ label: title }]} />
+      <p class="eyebrow">{eyebrow}</p>
+      <h1>{title}</h1>
+      <p>{description}</p>
+    </div>
+  </header>
+  <section class="section" aria-labelledby="listing-title">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">{articles.length} conteúdos</p>
+          <h2 id="listing-title">Escolha um ponto de partida</h2>
+        </div>
+      </div>
+      <div class="article-list">
+        {articles.map((article) => <ArticleCard article={article} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

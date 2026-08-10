@@ -1,0 +1,104 @@
+---
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { articles } from '../../content/articles';
+import { articleUrl } from '../../utils/site';
+
+const initialQuery = Astro.url.searchParams.get('q') || '';
+const searchIndex = articles.map((article) => ({
+  title: article.title,
+  description: article.description,
+  category: article.category,
+  tags: article.tags,
+  text: article.body.replace(/<[^>]+>/g, ' '),
+  url: articleUrl(article.slug),
+  readTime: article.readTime,
+}));
+---
+<BaseLayout title="Buscar conteúdos de IA" description="Pesquise artigos, guias, tutoriais, comparativos e prompts no portal IA Descomplicada" noindex={true}>
+  <header class="page-heading">
+    <div class="container">
+      <Breadcrumbs items={[{ label: 'Buscar' }]} />
+      <p class="eyebrow">Encontre uma resposta</p>
+      <h1>Buscar no portal</h1>
+      <p>Pesquise por título, categoria, tags ou palavras que aparecem no conteúdo dos artigos.</p>
+      <form class="search-large" id="search-form" role="search">
+        <label class="sr-only" for="search-input">Termo de busca</label>
+        <input id="search-input" name="q" type="search" value={initialQuery} placeholder="Ex.: prompts, estudos, ChatGPT..." autocomplete="off" />
+        <button class="button" type="submit">Buscar</button>
+      </form>
+    </div>
+  </header>
+  <section class="section section--compact" aria-labelledby="results-title">
+    <div class="container">
+      <div id="search-config" hidden data-search-index={JSON.stringify(searchIndex)} data-initial-query={initialQuery}></div>
+      <p id="results-count" class="eyebrow" aria-live="polite"></p>
+      <h2 id="results-title" class="sr-only">Resultados da busca</h2>
+      <div id="search-results" class="search-results"></div>
+      <div id="search-empty" class="empty-state" hidden>Nenhum conteúdo encontrado. Tente outro termo, como “trabalho”, “imagem” ou “resumo”.</div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  type SearchItem = {
+    title: string;
+    description: string;
+    category: string;
+    tags: string[];
+    text: string;
+    url: string;
+    readTime: string;
+  };
+
+  const searchConfig = document.querySelector<HTMLElement>('#search-config');
+  const searchIndex: SearchItem[] = JSON.parse(searchConfig?.dataset.searchIndex || '[]');
+  const initialQuery = searchConfig?.dataset.initialQuery || '';
+  const input = document.querySelector<HTMLInputElement>('#search-input');
+  const form = document.querySelector<HTMLFormElement>('#search-form');
+  const results = document.querySelector<HTMLDivElement>('#search-results');
+  const empty = document.querySelector<HTMLDivElement>('#search-empty');
+  const count = document.querySelector<HTMLParagraphElement>('#results-count');
+
+  const normalize = (value: string) => value
+    .toLocaleLowerCase('pt-BR')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+
+  const render = (query: string) => {
+    const normalizedQuery = normalize(query.trim());
+    const matches = normalizedQuery
+      ? searchIndex.filter((item) => normalize([item.title, item.description, item.category, item.tags.join(' '), item.text].join(' ')).includes(normalizedQuery))
+      : [];
+
+    if (count) count.textContent = normalizedQuery ? `${matches.length} ${matches.length === 1 ? 'resultado encontrado' : 'resultados encontrados'}` : 'Digite um termo para começar';
+    if (results) results.innerHTML = '';
+    if (empty) empty.hidden = Boolean(!normalizedQuery || matches.length);
+
+    matches.forEach((item) => {
+      const link = document.createElement('a');
+      link.className = 'search-result';
+      link.href = item.url;
+      const meta = document.createElement('span');
+      meta.className = 'category-label';
+      meta.textContent = `${item.category} · ${item.readTime}`;
+      const heading = document.createElement('h2');
+      heading.textContent = item.title;
+      const description = document.createElement('p');
+      description.textContent = item.description;
+      link.append(meta, heading, description);
+      results?.append(link);
+    });
+  };
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const query = input?.value || '';
+    const url = new URL(window.location.href);
+    query.trim() ? url.searchParams.set('q', query.trim()) : url.searchParams.delete('q');
+    window.history.replaceState({}, '', url);
+    render(query);
+  });
+
+  render(initialQuery);
+</script>

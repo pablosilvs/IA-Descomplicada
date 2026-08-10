@@ -1,0 +1,12 @@
+---
+import ArticleListing from '../../components/ArticleListing.astro';
+import { articles } from '../../content/articles';
+
+const tutorialArticles = articles.filter((article) => article.section === 'tutorial');
+---
+<ArticleListing
+  title="Tutoriais de IA"
+  eyebrow="Aprenda fazendo"
+  description="Passos práticos para aplicar inteligência artificial em textos, estudos, produtividade, automação e apresentações."
+  articles={tutorialArticles}
+/>
