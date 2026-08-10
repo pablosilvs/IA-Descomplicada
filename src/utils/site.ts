@@ -32,6 +32,6 @@ export function getRelatedArticles(article: Article, articles: Article[], limit 
 }
 
 export function getCanonical(siteUrl: URL | undefined, pathname: string) {
-  const origin = siteUrl?.origin || 'https://ia-descomplicada.netlify.app';
+  const origin = siteUrl?.origin || 'https://descomplica-iaofc.netlify.app';
   return new URL(pathname, origin).toString();
 }

@@ -22,11 +22,11 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'IA Descomplicada',
-  url: Astro.site?.toString() || 'https://ia-descomplicada.netlify.app/',
+  url: Astro.site?.toString() || 'https://descomplica-iaofc.netlify.app/',
   description: 'Inteligência Artificial sem complicação.',
   potentialAction: {
     '@type': 'SearchAction',
-    target: `${Astro.site?.toString().replace(/\/$/, '') || 'https://ia-descomplicada.netlify.app'}/buscar/?q={search_term_string}`,
+    target: `${Astro.site?.toString().replace(/\/$/, '') || 'https://descomplica-iaofc.netlify.app'}/buscar/?q={search_term_string}`,
     'query-input': 'required name=search_term_string',
   },
 };
@@ -34,8 +34,8 @@ const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'IA Descomplicada',
-  url: Astro.site?.toString() || 'https://ia-descomplicada.netlify.app/',
-  logo: new URL('/favicon.svg', Astro.site || 'https://ia-descomplicada.netlify.app').toString(),
+  url: Astro.site?.toString() || 'https://descomplica-iaofc.netlify.app/',
+  logo: new URL('/favicon.svg', Astro.site || 'https://descomplica-iaofc.netlify.app').toString(),
   description: 'Conteúdo educativo sobre inteligência artificial.',
 };
 ---

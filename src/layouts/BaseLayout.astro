@@ -13,7 +13,7 @@ interface Props {
 }
 
 const { title, description, image = '/og-image.svg', type = 'website', noindex = false, structuredData } = Astro.props;
-const siteOrigin = Astro.site?.origin || 'https://ia-descomplicada.netlify.app';
+const siteOrigin = Astro.site?.origin || 'https://descomplica-iaofc.netlify.app';
 const canonical = new URL(Astro.url.pathname, siteOrigin).toString();
 const socialImage = new URL(image, siteOrigin).toString();
 const fullTitle = title.includes('IA Descomplicada') ? title : `${title} | IA Descomplicada`;

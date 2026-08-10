@@ -10,7 +10,7 @@ const escapeXml = (value: string) => value
   .replace(/'/g, '&apos;');
 
 export const GET: APIRoute = ({ site }) => {
-  const origin = (site || new URL('https://ia-descomplicada.netlify.app')).toString().replace(/\/$/, '');
+  const origin = (site || new URL('https://descomplica-iaofc.netlify.app')).toString().replace(/\/$/, '');
   const items = [...articles]
     .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
     .map((article) => `
