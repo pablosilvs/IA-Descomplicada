@@ -36,6 +36,12 @@ const toolsSchema = {
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 10.5v5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="7.3" r="1" fill="currentColor"/></svg>
         <span>Ferramentas de inteligência artificial podem gerar informações incorretas. Verifique informações importantes em fontes confiáveis e leia as condições do serviço antes de compartilhar dados.</span>
       </div>
+      <div class="contact-card" style="margin-bottom: 42px;">
+        <p class="eyebrow">Critério editorial</p>
+        <h2>Escolha pelo uso, não pelo hype</h2>
+        <p>Organizamos as ferramentas pelo problema que ajudam a resolver, pelo nível de entrada e pelo tipo de tarefa. Os links levam aos endereços oficiais, e a presença de um serviço nesta seleção não significa patrocínio, garantia de resultado ou recomendação para qualquer situação.</p>
+        <p>Recursos, preços, limites e políticas podem mudar. Antes de criar uma conta ou usar dados pessoais, confira as condições atuais no site do fornecedor.</p>
+      </div>
       <h2 id="tools-list-title" class="sr-only">Lista de ferramentas</h2>
       {groups.map((group) => {
         const groupTools = tools.filter((tool) => group.categories.includes(tool.category));

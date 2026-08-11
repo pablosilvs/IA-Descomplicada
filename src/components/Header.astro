@@ -6,6 +6,7 @@ const links = [
   { href: '/guias/', label: 'Guias' },
   { href: '/tutoriais/', label: 'Tutoriais' },
   { href: '/comparativos/', label: 'Comparativos' },
+  { href: '/prompts/', label: 'Prompts' },
 ];
 ---
 <header class="site-header">
@@ -43,7 +44,6 @@ const links = [
         </form>
         <nav class="mobile-nav-links" aria-label="Navegação mobile">
           {links.map((link) => <a href={link.href}>{link.label}</a>)}
-          <a href="/prompts/">Prompts</a>
           <a href="/sobre/">Sobre</a>
           <a href="/contato/">Contato</a>
         </nav>

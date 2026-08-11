@@ -14,6 +14,7 @@ interface Props {
 
 const { title, description, image = '/og-image.svg', type = 'website', noindex = false, structuredData } = Astro.props;
 const siteOrigin = Astro.site?.origin || 'https://descomplica-iaofc.netlify.app';
+const publisherId = import.meta.env.PUBLIC_ADSENSE_PUBLISHER_ID || 'ca-pub-2162536684519068';
 const canonical = new URL(Astro.url.pathname, siteOrigin).toString();
 const socialImage = new URL(image, siteOrigin).toString();
 const fullTitle = title.includes('IA Descomplicada') ? title : `${title} | IA Descomplicada`;
@@ -40,8 +41,8 @@ const schemas = structuredData ? (Array.isArray(structuredData) ? structuredData
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#122342" />
     <meta name="description" content={description} />
-    <meta name="google-adsense-account" content="ca-pub-2162536684519068" />
-    <script is:inline async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2162536684519068" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content={publisherId} />
+    <script is:inline async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${publisherId}`} crossorigin="anonymous"></script>
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

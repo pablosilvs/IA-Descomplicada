@@ -841,13 +841,14 @@ button {
   font-size: 0.88rem;
 }
 
-.newsletter-form {
+.newsletter-actions {
   display: flex;
   min-width: min(100%, 430px);
-  gap: 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
 }
 
-.newsletter-form input,
 .form-field input,
 .form-field textarea,
 .search-large input {
@@ -859,12 +860,6 @@ button {
   color: var(--ink);
 }
 
-.newsletter-form input {
-  min-height: 46px;
-  padding: 0 14px;
-}
-
-.newsletter-form input:focus,
 .form-field input:focus,
 .form-field textarea:focus,
 .search-large input:focus {
@@ -872,29 +867,10 @@ button {
   box-shadow: 0 0 0 4px rgba(46, 107, 255, 0.1);
 }
 
-.newsletter-form button {
-  flex: 0 0 auto;
-  padding: 0 17px;
-  border: 0;
-  border-radius: 10px;
-  background: var(--ink-strong);
-  color: #fff;
-  font-weight: 750;
-}
-
-.newsletter-form button:hover {
-  background: var(--blue-dark);
-}
-
-.newsletter-status,
 .form-note {
   margin: 8px 0 0;
   color: var(--ink-soft);
   font-size: 0.74rem;
-}
-
-.newsletter-status:empty {
-  display: none;
 }
 
 .page-heading {
@@ -1568,7 +1544,19 @@ button {
 }
 
 .ad-slot {
-  min-height: 1px;
+  min-height: 120px;
+  margin: 32px 0;
+  text-align: center;
+}
+
+.ad-slot::before {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ink-soft);
+  content: "Publicidade";
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 @media (max-width: 1050px) {
@@ -1703,10 +1691,6 @@ button {
     align-items: stretch;
     flex-direction: column;
     gap: 23px;
-  }
-
-  .newsletter-form {
-    min-width: 0;
   }
 
   .footer-main {
@@ -1844,15 +1828,6 @@ button {
 
   .search-large .button {
     width: 100%;
-  }
-
-  .newsletter-form {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .newsletter-form button {
-    min-height: 46px;
   }
 
   .form-grid {

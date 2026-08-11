@@ -117,12 +117,12 @@ O Google Search Console é configurado no painel do próprio Google, normalmente
 
 ## 10. Adicionar Google AdSense futuramente
 
-`src/components/AdSlot.astro` é o ponto central para os espaços de publicidade. Ele permanece desativado enquanto `PUBLIC_ADSENSE_ENABLED` não for `true`.
+`src/components/AdSlot.astro` é o ponto central para os espaços de publicidade. Ele só renderiza um bloco quando `PUBLIC_ADSENSE_ENABLED=true` e `PUBLIC_ADSENSE_SLOT` possuem valores configurados.
 
 Antes de ativar:
 
 1. Solicite e obtenha aprovação do site no AdSense.
-2. Adicione somente o script e os blocos oficiais com publisher/slot IDs reais.
+2. Configure `PUBLIC_ADSENSE_PUBLISHER_ID` e `PUBLIC_ADSENSE_SLOT` com IDs reais fornecidos pelo AdSense.
 3. Atualize privacidade, cookies e consentimento.
 4. Ative poucos espaços, sem interromper a leitura.
 5. Teste mobile e desktop e monitore estabilidade visual.

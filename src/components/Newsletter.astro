@@ -1,26 +1,12 @@
 <section class="newsletter" aria-labelledby="newsletter-title">
   <div class="container newsletter-inner">
     <div>
-      <h2 id="newsletter-title">Receba os melhores conteúdos sobre IA</h2>
-      <p>Uma seleção prática de guias, ferramentas e ideias para usar inteligência artificial com mais critério.</p>
+      <h2 id="newsletter-title">Acompanhe os novos conteúdos sobre IA</h2>
+      <p>Receba as novas publicações pelo RSS e acompanhe guias, ferramentas e ideias para usar inteligência artificial com mais critério.</p>
     </div>
-    <div>
-      <form class="newsletter-form" data-newsletter-form>
-        <label class="sr-only" for="newsletter-email">Seu melhor e-mail</label>
-        <input id="newsletter-email" name="email" type="email" placeholder="seu@email.com" autocomplete="email" required />
-        <button type="submit">Quero receber</button>
-      </form>
-      <p class="newsletter-status" data-newsletter-status aria-live="polite"></p>
-      <p class="form-note">Interface pronta. A integração de e-mail será conectada antes da publicação.</p>
+    <div class="newsletter-actions">
+      <a class="button button--secondary" href="/rss.xml">Acompanhar pelo RSS <span aria-hidden="true">→</span></a>
+      <p class="form-note">Sem cadastro e sem rastreamento: use o leitor de RSS que preferir.</p>
     </div>
   </div>
 </section>
-<script>
-  document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const status = form.parentElement?.querySelector('[data-newsletter-status]');
-      if (status) status.textContent = 'Obrigado pelo interesse. A lista ainda está em preparação.';
-    });
-  });
-</script>

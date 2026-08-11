@@ -23,7 +23,7 @@ const articleSchema = {
   datePublished: article.publishedAt,
   dateModified: article.updatedAt,
   mainEntityOfPage: articleUrlAbsolute,
-  author: { '@type': 'Organization', name: article.author },
+  author: { '@type': 'Organization', name: article.author, url: new URL('/sobre/', siteOrigin).toString() },
   publisher: {
     '@type': 'Organization',
     name: 'IA Descomplicada',
@@ -60,7 +60,7 @@ const schemas = [articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema] : 
       <h1>{article.title}</h1>
       <p class="article-deck">{article.description}</p>
       <div class="article-meta">
-        <span>Por <strong>{article.author}</strong></span>
+        <span>Por <a href="/sobre/"><strong>{article.author}</strong></a></span>
         <span aria-hidden="true">·</span>
         <time datetime={article.publishedAt}>Publicado em {formatDate(article.publishedAt)}</time>
         <span aria-hidden="true">·</span>

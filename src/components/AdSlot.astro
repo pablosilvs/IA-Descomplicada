@@ -1,8 +1,20 @@
 ---
 const enabled = import.meta.env.PUBLIC_ADSENSE_ENABLED === 'true';
+const slot = import.meta.env.PUBLIC_ADSENSE_SLOT;
+const publisherId = import.meta.env.PUBLIC_ADSENSE_PUBLISHER_ID || 'ca-pub-2162536684519068';
 ---
-{enabled && (
+{enabled && slot && (
   <aside class="ad-slot" aria-label="Publicidade">
-    <!-- Inserir aqui o bloco oficial do AdSense após a aprovação e a configuração do publisher ID. -->
+    <ins
+      class="adsbygoogle"
+      style="display:block"
+      data-ad-client={publisherId}
+      data-ad-slot={slot}
+      data-ad-format="auto"
+      data-full-width-responsive="true"
+    ></ins>
+    <script is:inline>
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
   </aside>
 )}
