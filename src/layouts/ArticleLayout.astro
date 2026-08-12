@@ -55,7 +55,7 @@ const schemas = [articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema] : 
 <BaseLayout title={article.title} description={article.description} image={article.image} type="article" structuredData={schemas}>
   <header class="article-hero">
     <div class="container article-hero-inner">
-      <Breadcrumbs items={[{ label: 'Artigos', href: '/artigos/' }, { label: article.category, href: `/artigos/?categoria=${encodeURIComponent(article.category)}` }, { label: article.title }]} />
+      <Breadcrumbs items={[{ label: 'Artigos', href: '/artigos/' }, { label: article.title }]} />
       <p class="eyebrow">{article.category}</p>
       <h1>{article.title}</h1>
       <p class="article-deck">{article.description}</p>

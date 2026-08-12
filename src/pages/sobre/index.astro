@@ -1,6 +1,7 @@
 ---
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { contactEmail } from '../../utils/site';
 
 const aboutSchema = {
   '@context': 'https://schema.org',
@@ -42,7 +43,7 @@ const aboutSchema = {
       <p>O portal reúne tutoriais, guias, comparativos e conteúdos de contexto. Você pode começar por <a href="/artigos/o-que-e-inteligencia-artificial-guia-para-iniciantes/">o guia para iniciantes</a>, explorar a <a href="/ferramentas/">seleção de ferramentas</a> ou ir direto aos <a href="/prompts/">prompts para adaptar</a>.</p>
 
       <h2>Fale com a gente</h2>
-      <p>Encontrou um erro, quer sugerir uma pauta ou precisa esclarecer uma informação? Use o <a href="/contato/">formulário de contato</a>. Feedback específico ajuda a melhorar os conteúdos e a manter as páginas úteis.</p>
+      <p>Encontrou um erro, quer sugerir uma pauta ou precisa esclarecer uma informação? Use o <a href="/contato/">formulário de contato</a> ou escreva para <a href={`mailto:${contactEmail}`}>{contactEmail}</a>. Feedback específico ajuda a melhorar os conteúdos e a manter as páginas úteis.</p>
     </div>
   </section>
 </BaseLayout>

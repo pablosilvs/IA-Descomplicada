@@ -1,4 +1,6 @@
 ---
+import { contactEmail } from '../utils/site';
+
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
@@ -26,6 +28,7 @@ const year = new Date().getFullYear();
       <ul class="footer-links">
         <li><a href="/sobre/">Sobre</a></li>
         <li><a href="/contato/">Contato</a></li>
+        <li><a href={`mailto:${contactEmail}`}>{contactEmail}</a></li>
         <li><a href="/politica-de-privacidade/">Privacidade</a></li>
         <li><a href="/termos-de-uso/">Termos de uso</a></li>
         <li><a href="/politica-de-cookies/">Cookies</a></li>

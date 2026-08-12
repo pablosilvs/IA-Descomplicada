@@ -2,6 +2,7 @@ import type { Article } from '../types';
 
 export const siteName = 'IA Descomplicada';
 export const siteDescription = 'Guias, ferramentas, tutoriais e comparativos para usar inteligência artificial com mais clareza.';
+export const contactEmail = 'descomplicaia.contato@gmail.com';
 
 export function formatDate(value: string) {
   return new Intl.DateTimeFormat('pt-BR', {

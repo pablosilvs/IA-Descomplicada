@@ -271,6 +271,7 @@ TEXTO: [cole aqui]</code></pre>
       <h3>Para revisar uma mensagem</h3>
       <pre><code>Revise esta mensagem para clareza e cordialidade. Mantenha a intenção e o tom direto. Mostre primeiro a versão revisada e depois explique até 3 mudanças.
 
+MENSAGEM: [cole aqui]</code></pre>
       <h3>Para planejar uma tarefa</h3>
       <pre><code>Monte um plano de execução para [objetivo]. Contexto: [situação]. Prazo: [prazo]. Recursos: [recursos]. Separe etapas, dependências, riscos e a primeira ação de 20 minutos.</code></pre>
       <h3>Para estudar</h3>

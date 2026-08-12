@@ -1,14 +1,27 @@
 ---
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { contactEmail } from '../../utils/site';
+
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contato da IA Descomplicada',
+  description: 'Canais de contato da equipe editorial da IA Descomplicada.',
+  mainEntity: {
+    '@type': 'Organization',
+    name: 'IA Descomplicada',
+    email: contactEmail,
+  },
+};
 ---
-<BaseLayout title="Contato" description="Entre em contato com a equipe editorial da IA Descomplicada para enviar dúvidas, sugestões e correções.">
+<BaseLayout title="Contato" description="Entre em contato com a equipe editorial da IA Descomplicada para enviar dúvidas, sugestões e correções." structuredData={contactSchema}>
   <header class="page-heading">
     <div class="container">
       <Breadcrumbs items={[{ label: 'Contato' }]} />
       <p class="eyebrow">Fale com a equipe</p>
       <h1>Tem uma dúvida ou sugestão?</h1>
-      <p>Use o formulário para enviar uma pauta, apontar uma correção ou compartilhar uma pergunta que merece um guia.</p>
+      <p>Use o formulário ou envie um e-mail para sugerir uma pauta, apontar uma correção ou compartilhar uma pergunta que merece um guia.</p>
     </div>
   </header>
   <section class="section">
@@ -30,13 +43,17 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
               <span class="contact-point-icon" aria-hidden="true">?</span>
               <div><strong>Dúvidas editoriais</strong><span>Envie uma pergunta que possa virar conteúdo público.</span></div>
             </div>
+            <div class="contact-point">
+              <span class="contact-point-icon" aria-hidden="true">@</span>
+              <div><strong>E-mail direto</strong><a href={`mailto:${contactEmail}`}>{contactEmail}</a></div>
+            </div>
           </div>
         </div>
       </div>
       <div class="contact-card">
         <form name="contato" method="POST" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contato" />
-          <p class="sr-only"><label>Não preencha: <input name="bot-field" /></label></p>
+          <p hidden><label>Não preencha: <input name="bot-field" /></label></p>
           <div class="form-grid">
             <div class="form-field">
               <label for="name">Nome</label>
@@ -56,7 +73,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             </div>
           </div>
           <div class="form-submit">
-            <small>O formulário usa Netlify Forms quando o site é publicado no Netlify.</small>
+            <small>Seus dados serão usados apenas para responder à mensagem, conforme a <a href="/politica-de-privacidade/">Política de Privacidade</a>.</small>
             <button class="button" type="submit">Enviar mensagem</button>
           </div>
         </form>

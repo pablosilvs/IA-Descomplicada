@@ -1443,12 +1443,20 @@ button {
   font-size: 0.84rem;
 }
 
-.contact-point span {
+.contact-point > div span,
+.contact-point > div a {
   display: block;
   margin-top: 2px;
   color: var(--ink-soft);
   font-size: 0.79rem;
   line-height: 1.4;
+}
+
+.contact-point > div a,
+.form-submit a {
+  color: var(--blue-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .form-grid {

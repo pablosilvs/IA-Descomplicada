@@ -1,6 +1,7 @@
 ---
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { contactEmail } from '../../utils/site';
 ---
 <BaseLayout title="Termos de Uso" description="Termos de uso da IA Descomplicada para acesso e utilização do conteúdo educativo do portal.">
   <header class="page-heading">
@@ -13,7 +14,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   </header>
   <section class="section">
     <div class="container prose-page">
-      <p><strong>Última atualização:</strong> 10 de agosto de 2026</p>
+      <p><strong>Última atualização:</strong> 12 de agosto de 2026</p>
       <h2>1. Sobre o conteúdo</h2>
       <p>A IA Descomplicada publica material educativo sobre inteligência artificial. Os artigos são informativos e não constituem aconselhamento médico, jurídico, financeiro, profissional ou de segurança. Verifique informações importantes em fontes apropriadas.</p>
 
@@ -24,13 +25,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <p>Descrições de ferramentas, preços, recursos e links podem mudar. A presença de um serviço no catálogo não é garantia de desempenho, disponibilidade, segurança ou adequação ao seu caso. A decisão de usar um serviço externo é sua e deve considerar os termos do próprio fornecedor.</p>
 
       <h2>4. Precisão e atualizações</h2>
-      <p>Trabalhamos para manter o conteúdo claro e correto, mas não prometemos que todas as páginas estarão completas ou atualizadas em tempo real. Se encontrar um erro, use o <a href="/contato/">formulário de contato</a> para enviar a correção.</p>
+      <p>Trabalhamos para manter o conteúdo claro e correto, mas não prometemos que todas as páginas estarão completas ou atualizadas em tempo real. Se encontrar um erro, use o <a href="/contato/">formulário de contato</a> ou escreva para <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.</p>
 
       <h2>5. Disponibilidade</h2>
       <p>Podemos alterar, suspender ou remover páginas para corrigir informações, melhorar a experiência ou atualizar a estrutura do portal. Não garantimos disponibilidade contínua de links de terceiros.</p>
 
       <h2>6. Publicidade e patrocínios futuros</h2>
-      <p>Não há anúncios ativos nesta versão. Qualquer publicidade ou parceria futura deverá ser identificada e não altera a responsabilidade do leitor de conferir informações importantes.</p>
+      <p>Não há blocos manuais de anúncios ativos nesta versão. Qualquer publicidade ou parceria futura deverá ser identificada e não altera a responsabilidade do leitor de conferir informações importantes.</p>
 
       <h2>7. Alterações destes termos</h2>
       <p>Novas funcionalidades e serviços podem exigir ajustes nos termos. A versão vigente será publicada nesta página com a data de atualização.</p>

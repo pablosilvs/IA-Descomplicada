@@ -4,9 +4,10 @@ import Newsletter from '../components/Newsletter.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { articles } from '../content/articles';
 import { tools } from '../content/tools';
+import { contactEmail } from '../utils/site';
 
 const featured = articles.slice(0, 3);
-const latest = articles.slice(3, 9);
+const latest = [...articles].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt)).slice(0, 6);
 const guides = articles.filter((article) => article.section === 'guia').slice(0, 3);
 const tutorials = articles.filter((article) => article.section === 'tutorial').slice(0, 3);
 const comparisons = articles.filter((article) => article.section === 'comparativo');
@@ -16,7 +17,7 @@ const categories = [
   { name: 'Vídeo', description: 'Explore narrativas visuais', href: '/ferramentas/#video', symbol: '▶' },
   { name: 'Áudio', description: 'Voz, som e transcrição', href: '/ferramentas/#audio', symbol: '◖' },
   { name: 'Programação', description: 'Código com mais contexto', href: '/ferramentas/#programacao', symbol: '</>' },
-  { name: 'Produtividade', description: 'Trabalhe melhor com IA', href: '/artigos/?categoria=Produtividade', symbol: '↗' },
+  { name: 'Produtividade', description: 'Trabalhe melhor com IA', href: '/ferramentas/#produtividade', symbol: '↗' },
 ];
 const websiteSchema = {
   '@context': 'https://schema.org',
@@ -37,6 +38,7 @@ const organizationSchema = {
   url: Astro.site?.toString() || 'https://descomplica-iaofc.netlify.app/',
   logo: new URL('/favicon.svg', Astro.site || 'https://descomplica-iaofc.netlify.app').toString(),
   description: 'Conteúdo educativo sobre inteligência artificial.',
+  email: contactEmail,
 };
 ---
 <BaseLayout title="IA Descomplicada | Inteligência Artificial sem complicação" description="Guias, ferramentas, tutoriais e comparativos para você aproveitar melhor a inteligência artificial no trabalho, nos estudos e no dia a dia." structuredData={[websiteSchema, organizationSchema]}>

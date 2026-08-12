@@ -1,6 +1,7 @@
 ---
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { contactEmail } from '../../utils/site';
 ---
 <BaseLayout title="Política de Privacidade" description="Política de privacidade da IA Descomplicada: dados de navegação, formulários, cookies, analytics e publicidade do Google AdSense.">
   <header class="page-heading">
@@ -13,7 +14,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   </header>
   <section class="section">
     <div class="container prose-page">
-      <p><strong>Última atualização:</strong> 11 de agosto de 2026</p>
+      <p><strong>Última atualização:</strong> 12 de agosto de 2026</p>
       <h2>1. Quem somos</h2>
       <p>A IA Descomplicada é um portal de conteúdo educativo sobre inteligência artificial. Nesta política, “site” significa as páginas publicadas neste domínio e “nós” significa a equipe responsável pelo projeto.</p>
 
@@ -30,11 +31,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <p>O formulário usa o Netlify Forms. As mensagens são processadas pelo Netlify e usadas para responder à solicitação, avaliar correções e organizar sugestões editoriais. O acesso fica restrito às pessoas responsáveis pelo projeto, e os dados são mantidos pelo período necessário para atender à finalidade da mensagem e às obrigações aplicáveis.</p>
 
       <h2>4. Cookies e analytics</h2>
-      <p>O site não inclui IDs falsos de Google Analytics nem scripts de rastreamento por padrão. Se analytics for adicionado, explique nesta política o fornecedor, a finalidade, os eventos coletados, o período de retenção e como o visitante pode recusar ou ajustar a coleta.</p>
+      <p>No momento, o site não utiliza Google Analytics nem outra ferramenta própria de análise de audiência. Se esse cenário mudar, esta política será atualizada com o fornecedor, a finalidade, os dados coletados, o período de retenção e as opções de controle disponíveis ao visitante.</p>
       <p>Consulte também a <a href="/politica-de-cookies/">Política de Cookies</a>.</p>
 
       <h2>5. Publicidade e Google AdSense</h2>
-      <p>O site possui o código de identificação do publisher do Google AdSense, mas os blocos de anúncios permanecem desativados enquanto a configuração e a aprovação não forem concluídas.</p>
+      <p>O site contém o código de vinculação do Google AdSense para análise e configuração da conta, mas não possui blocos manuais de anúncios ativos enquanto a configuração e a aprovação não forem concluídas.</p>
       <p>Quando anúncios forem ativados, terceiros, incluindo o Google, poderão usar cookies e tecnologias semelhantes para veicular anúncios com base em visitas anteriores do usuário a este ou a outros sites. O Google e seus parceiros também poderão medir a publicidade e personalizá-la conforme o consentimento, as configurações disponíveis e as regras aplicáveis.</p>
       <p>O usuário pode desativar a publicidade personalizada nas <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Configurações de anúncios do Google</a> ou consultar as opções disponíveis em <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">aboutads.info</a>. Se outras redes ou fornecedores forem adicionados, seus nomes, finalidades e opções de recusa serão incluídos nesta política antes da ativação.</p>
 
@@ -45,10 +46,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <p>Artigos e páginas de ferramentas podem apontar para sites externos. Cada serviço possui sua própria política e termos. Leia essas informações antes de criar uma conta ou enviar dados.</p>
 
       <h2>8. Direitos e contato</h2>
-      <p>Solicitações relacionadas aos dados enviados pelo formulário, incluindo dúvidas, correção, acesso ou eliminação quando aplicável, podem ser feitas pela <a href="/contato/">página de contato</a>. Ao escrever, informe a página ou a mensagem relacionada ao pedido e não envie senhas, documentos ou dados pessoais desnecessários.</p>
+      <p>Solicitações relacionadas aos dados enviados pelo formulário, incluindo dúvidas, correção, acesso ou eliminação quando aplicável, podem ser feitas pela <a href="/contato/">página de contato</a> ou pelo e-mail <a href={`mailto:${contactEmail}`}>{contactEmail}</a>. Ao escrever, informe a página ou a mensagem relacionada ao pedido e não envie senhas, documentos ou dados pessoais desnecessários.</p>
 
       <h2>9. Alterações</h2>
-      <p>Esta política pode ser atualizada quando o site adicionar analytics, publicidade, newsletter ou novos formulários. A data no topo deve ser alterada sempre que houver uma revisão relevante.</p>
+      <p>Esta política pode ser atualizada quando o site adicionar analytics, publicidade, newsletter ou novos formulários. A data no topo será alterada sempre que houver uma revisão relevante.</p>
     </div>
   </section>
 </BaseLayout>
