@@ -13,7 +13,7 @@ interface Props {
 }
 
 const { title, description, image = '/og-image.svg', type = 'website', noindex = false, structuredData } = Astro.props;
-const siteOrigin = Astro.site?.origin || 'https://descomplica-iaofc.netlify.app';
+const siteOrigin = Astro.site?.origin || 'https://ia-descomplicadaoofc.netlify.app';
 const adsenseEnabled = import.meta.env.PUBLIC_ADSENSE_ENABLED === 'true';
 const publisherId = import.meta.env.PUBLIC_ADSENSE_PUBLISHER_ID || 'ca-pub-2162536684519068';
 const canonical = new URL(Astro.url.pathname, siteOrigin).toString();
