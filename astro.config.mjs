@@ -2,7 +2,7 @@ import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: process.env.PUBLIC_SITE_URL || 'https://ia-descomplicadaoofc.netlify.app',
+  site: 'https://ia-descomplicadaoofc.netlify.app',
   output: 'static',
   integrations: [sitemap({ filter: (page) => !page.includes('/buscar/') })],
   build: {
